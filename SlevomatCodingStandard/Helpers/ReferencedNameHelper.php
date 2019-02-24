@@ -213,7 +213,7 @@ class ReferencedNameHelper
 		$nameTokenCodesWithWhitespace = array_merge($nameTokenCodes, Tokens::$emptyTokens);
 
 		$lastNamePointer = $startPointer;
-		for ($i = $startPointer + 1; $i < count($tokens); $i++) {
+		for ($i = $startPointer + 1, $iMax = count($tokens); $i < $iMax; $i++) {
 			if (!in_array($tokens[$i]['code'], $nameTokenCodesWithWhitespace, true)) {
 				break;
 			}

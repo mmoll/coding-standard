@@ -9,7 +9,6 @@ use function array_map;
 use function array_shift;
 use function array_unshift;
 use function count;
-use function explode;
 use function implode;
 use function in_array;
 use function pathinfo;
@@ -17,6 +16,7 @@ use function preg_split;
 use function strlen;
 use function strtolower;
 use function substr;
+use function substr_count;
 use const PATHINFO_EXTENSION;
 
 class FilepathNamespaceExtractor
@@ -66,7 +66,7 @@ class FilepathNamespaceExtractor
 					continue;
 				}
 
-				$directoryPartsCount = count(explode('/', $directory));
+				$directoryPartsCount = substr_count($directory, '/') + 1;
 				for ($i = 0; $i < $directoryPartsCount; $i++) {
 					array_shift($pathParts);
 				}
